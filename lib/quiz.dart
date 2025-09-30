@@ -12,15 +12,19 @@ class Quiz extends StatefulWidget{
 }
 
 class _QuizState extends State<Quiz>{
-  Widget activeScreen = StartScreen(switchScreen);
-  void switchScreen(){
-    setState(
-      (){
-        activeScreen = QuestionsScreen();
-      }
-    );
-      
+  Widget? activeScreen;
+  @override
+  void initState(){
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
   }
+
+  void switchScreen(){
+    setState(() {
+      activeScreen = QuestionsScreen();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +34,7 @@ class _QuizState extends State<Quiz>{
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 78, 13, 151),
-                Color.fromARGB(255, 107, 15, 168),
+                Color.fromARGB(255, 125, 76, 158),
               ],
             ),
           ),
